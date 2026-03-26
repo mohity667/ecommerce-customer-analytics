@@ -1,0 +1,19 @@
+# Data (not committed to repo)
+data/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+*.egg-info/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Environment
+.env
+.DS_Store
+
+# IDE
+.vscode/
+.idea/
