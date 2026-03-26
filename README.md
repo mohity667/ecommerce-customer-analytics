@@ -1,4 +1,8 @@
-# Ecommerce Customer Analytics
+# Predicting Churn and Segmenting Customers in a UK Retail Dataset
+
+## Summary
+
+End-to-end customer analytics on transactions — churn prediction (0.73 AUC), RFM segmentation, market basket analysis, and cohort retention. Built to answer one question: not just who's leaving, but who's worth saving
 
 ## Problem
 
@@ -8,13 +12,14 @@ I had 540K transaction records from a UK online retailer and one question: which
 
 About 25% of rows had no CustomerID, 9,288 were cancellations (costing ~£897K), and the UK accounted for 91.5% of transactions. After cleaning, I worked with ~397K transactions across 4,338 customers.
 
-I defined churn as no purchases in a 90 day future window, engineered 11 features (spend per product, order frequency, recent activity ratios), scaled with StandardScaler, and compared Logistic Regression, Random Forest, and Gradient Boosting. I tuned the classification threshold to favor recall, since missing a churner costs more than a wasted retention email.
-
-For segmentation, I ran both manual RFM quartile scoring and KMeans on Recency, Frequency, and Monetary, then cross tabbed to check agreement. Market basket analysis used Apriori on 11,085 UK invoices and the top 50 products. Cohort retention tracked monthly return rates across 13 cohorts.
+Cleaned 540K rows → defined churn (90-day window) → engineered 11 features → compared 3 models → tuned threshold for recall
+Scored RFM manually + KMeans to cross-validate segment labels
+Apriori on 11K invoices for association rules
+Cohort analysis across 13 months
 
 ## Key Results
 
-**Churn: 0.728 ROC AUC.** Logistic Regression beat Random Forest and Gradient Boosting on churn F1 (0.674 vs 0.65 vs 0.64). Lowering the threshold from 0.50 to 0.40 pushed churn recall to 80% while keeping precision at 60%.
+**Churn: 0.728 ROC AUC.** Logistic Regression beat Random Forest and Gradient Boosting on churn F1 (0.674 vs 0.65 vs 0.64). Lowering the threshold from 0.50 to 0.40 pushed churn recall to 80% while keeping precision at 60%. The margin was small, likely because the feature set was already well-engineered and the dataset too small for tree models to find additional signal.
 
 ![ROC curves and metric comparison across all three models](assets/model_comparison.png)
 
