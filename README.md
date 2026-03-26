@@ -2,7 +2,7 @@
 
 ## Problem
 
-I had 541,909 transaction records from a UK online retailer and one question: which customers are leaving, and what can we do about it? Churn prediction tells you who might leave. It does not tell you who is worth saving or what to sell them next. So I built an analysis covering churn prediction, customer segmentation, market basket analysis, and cohort retention.
+I had 540K transaction records from a UK online retailer and one question: which customers are leaving, and what can we do about it? Churn prediction tells you who might leave. It does not tell you who is worth saving or what to sell them next. So I built an analysis covering churn prediction, customer segmentation, market basket analysis, and cohort retention.
 
 ## Approach
 
